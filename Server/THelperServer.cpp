@@ -10,7 +10,7 @@ void THelperServer :: ProcessRequest(QTcpSocket* socket)
   if (!socket->canReadLine()) return;
   TClient temp_client;
 
-  //Парсим запрос
+  //ГЏГ Г°Г±ГЁГ¬ Г§Г ГЇГ°Г®Г±
   QStringList tokens = QString(socket->readLine()).split(QRegExp("[ \r\n&?][ \r\n&?]*"));
   if (tokens.size() == 0) return;
 
@@ -37,7 +37,7 @@ void THelperServer :: ProcessRequest(QTcpSocket* socket)
     //
     Clients.push_back(temp_client);
     
-    //Затем готовим ответ
+
     QTextStream text_stream(socket);
     text_stream.setAutoDetectUnicode(true);
     text_stream << "HTTP/1.0 200 Ok\r\n"
